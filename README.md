@@ -100,3 +100,63 @@ Output:
 local
 global
 ```
+* var can be re-declared but let and const cannot
+```javascript
+function add(){
+  var a=20;
+   var a=60;
+   console.log(a) //output 60
+   -----------------------------
+   let a=20;
+   let a=60;
+  console.log(a) //SyntaxError: Identifier 'a' has already been declared
+  -------------------------------------
+   const a=20;
+   const a=60;
+   console.log(a) //SyntaxError: Identifier 'a' has already been declared
+  
+}
+add();
+```
+* var allows to access variables before initialization but Let can't
+
+```javascript
+function add(){
+   console.log(a) //output undefined
+   var a=20;
+  //------------------
+  console.log(a) //Error Cannot access 'a' before initialization
+  let a=20;
+  
+}
+add();
+```
+> Q2):What is Execution Context?
+> 
+> Everything in javaScript happens inside an Execution Context.
+> JavaScript is synchronous(*executes one command at a time in a specific order*) single threaded language
+
+<table>
+<thead>
+	Execution Context
+</thead>
+<tbody>
+	<tr>
+		<th>Memory component/Variable Environment</th>
+		<th style="text-align: right">Code component/Thread of Execution</th>
+	</tr>
+	<tr>
+		<td>Memory component variables and functions in a key value pairs</td>
+		<td style="text-align: right">in Code component the whole js code is executed line by line </td>
+	</tr>
+	<tr>
+		<td> key:value</br>
+		    a:10;
+		    add:()=:{}</td>
+		<td style="text-align: right">in Code component the whole js code is executed line by line </td>
+	</tr>
+</tbody>
+</table>
+
+
+
